@@ -1,0 +1,21 @@
+.out outpos position
+.out outtc texcoord0
+.out outtc1 texcoord1
+.out outtc2 texcoord2
+.out outclr color
+.alias inpos v0
+.alias intex v1
+.alias inclr v2
+.constf color_scale(0.00392156862745098039, 0.00392156862745098039, 0.00392156862745098039, 0.00392156862745098039)
+.fvec stereo_shift
+.proc main
+ mov outpos, inpos
+ mul r0.x, stereo_shift.x, inpos.w
+ add r0.x, stereo_shift.y, r0.x
+ add outpos.y, inpos.y, r0.x
+ mov outtc, intex
+ mov outtc1, intex
+ mov outtc2, intex
+ mul outclr, color_scale, inclr
+ end
+.end

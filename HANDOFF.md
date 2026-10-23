@@ -1,27 +1,16 @@
 # Publication handoff
 
-## State: 18 October 2026
+## State: 23 October 2026
 
-The public repository has been created. No project source snapshot or executable release has been published yet.
+This public repository now contains a reviewed, source-only snapshot based on upstream alphanu1/daytona-arcade-recomp commit 398eb4bb77be3b14a3636f8f8661b4e4a2b698f0. The snapshot includes desktop source, Android app source, experimental New Nintendo 3DS code, build instructions, third-party notices, and source tests.
 
-Source: upstream alphanu1/daytona-arcade-recomp, base commit 398eb4bb77be3b14a3636f8f8661b4e4a2b698f0, with substantial local Windows, Android and console work.
+This is not a playable release. No game executable, ROM, ROM-generated machine code, extracted game asset pack, APK, 3DSX/ELF, N64 ROM image, local SDK, signing key, capture, or private test log was published. The Android and 3DS builds require locally generated game code/assets from a supported ROM. The packed 3DS asset C files were excluded because they contain ROM-derived content; the N64 experiment and its ROM-derived data were also excluded.
 
-## Verified checks
+The local development handoff, machine-specific editor settings, test-capture helpers with private paths, and per-run logs were not copied. This handoff records only public publication scope.
 
-- Public visibility and owner were verified through GitHub.
-- The Android APK archive contains assets/roms/daytona93.zip.
-- Desktop and console build definitions link locally generated game code.
-- The source drive refused new file writes and failed reading at least one current console source file. Publication must not invent or omit required source silently.
-- No game package, ROM or generated game code has been uploaded.
+## Validation
 
-## Next work
-
-1. Restore reliable read and write access to the project drive.
-2. Prepare and inspect the complete current project-owned source snapshot, preserving dependency notices and upstream attribution.
-3. Exclude private paths/configuration, keys, caches, generated game code and assets.
-4. Validate the snapshot and publish it, then verify the remote files.
-5. Prepare distributable build tools or local-build instructions; existing private game binaries cannot be uploaded under the project's rules.
-
-## Do not repeat
-
-Do not upload an entire working directory or existing private APK/console ZIP. Removing external game-data files does not remove game-derived machine code from a compiled executable. Do not claim the New 3DS reaches 30 FPS; current clean emulator evidence is approximately 15 FPS.
+- 186 allowlisted source/document/test files were reviewed and copied; the exact file list and SHA-256 hashes are in the local Y: publication audit.
+- Desktop/Android/3DS binaries were not published.
+- No build or test suite was run as part of this source publication pass. Existing private build results are not a substitute for a clean public build.
+- The project has no blanket license for local changes. Upstream and third-party notices remain attributed separately.
